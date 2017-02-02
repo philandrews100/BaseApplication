@@ -6,7 +6,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
-
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+        classpath "io.realm:realm-gradle-plugin:2.2.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -20,4 +21,19 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    minSdkVersion = 16
+    targetSdkVersion = 25
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.2'
+    jUnitVersion = '4.12'
+    appCompatVersion = '25.1.1'
+    gson = '2.8.0'
+    retroFit = '2.1.0'
+    okHttpLoggingInterceptor = '3.3.1'
+    stetho = '1.4.1'
+    butterKnife = '8.4.0'
+    glide = '3.5.2'
 }
