@@ -1,5 +1,6 @@
 package phil.baseproject.fragments;
 
+import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -12,6 +13,10 @@ import phil.baseproject.fragments.base.BaseFragment;
 
 public class FragmentTest extends BaseFragment {
 
+    public static BaseFragment newInstance() {
+        return new FragmentTest();
+    }
+
     @BindView(R.id.tvHelloWorld)
     TextView tvHelloWorld;
 
@@ -22,6 +27,12 @@ public class FragmentTest extends BaseFragment {
 
     @Override
     public void setupView() {
-
+        tvHelloWorld.setText(mainController.getParentInstance().getPackageName());
+        getView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainController.goBack();
+            }
+        });
     }
 }
